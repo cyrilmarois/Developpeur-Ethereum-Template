@@ -1,0 +1,22 @@
+{
+  "name": "voting",
+  "version": "1.0.0",
+  "description": "A voting project in Solidity",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cyrilmarois/Developpeur-Ethereum-Template.git"
+  },
+  "author": "Cyril Marois",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cyrilmarois/Developpeur-Ethereum-Template/issues"
+  },
+  "homepage": "https://github.com/cyrilmarois/Developpeur-Ethereum-Template#readme",
+  "dependencies": {
+    "@openzeppelin/contracts": "^4.7.3"
+  }
+}
