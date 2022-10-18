@@ -1,10 +1,10 @@
 {
-  "name": "voting",
+  "name": "truffle",
   "version": "1.0.0",
-  "description": "A voting project in Solidity",
+  "description": "A truffle deployment test",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "truffle test"
   },
   "repository": {
     "type": "git",
@@ -17,6 +17,10 @@
   },
   "homepage": "https://github.com/cyrilmarois/Developpeur-Ethereum-Template#readme",
   "dependencies": {
-    "@openzeppelin/contracts": "^4.7.3"
+    "@openzeppelin/contracts": "^4.7.3",
+    "@openzeppelin/test-helpers": "^0.5.16",
+    "@truffle/hdwallet-provider": "^2.1.0",
+    "dotenv": "^16.0.3",
+    "eth-gas-reporter": "^0.2.25"
   }
 }

@@ -1,0 +1,25 @@
+{
+  "name": "hardhat",
+  "version": "1.0.0",
+  "description": "A hardhat deployment test",
+  "main": "index.js",
+  "scripts": {
+    "test": "npx hardhat test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cyrilmarois/Developpeur-Ethereum-Template.git"
+  },
+  "author": "Cyril Marois",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cyrilmarois/Developpeur-Ethereum-Template/issues"
+  },
+  "homepage": "https://github.com/cyrilmarois/Developpeur-Ethereum-Template#readme",
+  "dependencies": {
+    "@openzeppelin/contracts": "^4.7.3",
+    "@openzeppelin/test-helpers": "^0.5.16",
+    "@truffle/hdwallet-provider": "^2.1.0",
+    "dotenv": "^16.0.3"
+  }
+}
