@@ -51,7 +51,6 @@
     "has-flag": "^4.0.0",
     "hosted-git-info": "^4.1.0",
     "human-signals": "^2.1.0",
-    "husky": "^8.0.1",
     "import-fresh": "^3.3.0",
     "indent-string": "^4.0.0",
     "inherits": "^2.0.4",
@@ -148,10 +147,12 @@
   },
   "devDependencies": {
     "@commitlint/cli": "^17.1.2",
-    "@commitlint/config-conventional": "^17.1.0"
+    "@commitlint/config-conventional": "^17.1.0",
+    "husky": "^8.0.1"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prepare": "husky install"
   },
   "repository": {
     "type": "git",
