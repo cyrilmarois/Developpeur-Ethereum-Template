@@ -18,11 +18,9 @@
  *
  */
 
-// require('dotenv').config();
-// const mnemonic = process.env["MNEMONIC"];
-// const infuraProjectId = process.env["INFURA_PROJECT_ID"];
-
-// const HDWalletProvider = require('@truffle/hdwallet-provider');
+require("dotenv").config();
+const { MNEMONIC, INFURA_ID, ALCHEMY_ID } = process.env;
+const HDWalletProvider = require("@truffle/hdwallet-provider");
 
 module.exports = {
   /**
@@ -47,6 +45,22 @@ module.exports = {
       host: "127.0.0.1", // Localhost (default: none)
       port: 8545, // Standard Ethereum port (default: none)
       network_id: "*", // Any network (default: none)
+    },
+    bis: {
+      host: "127.0.0.1", // Localhost (default: none)
+      port: 7545, // Standard Ethereum port (default: none)
+      network_id: "*", // Any network (default: none)
+    },
+    goerli: {
+      provider: () =>
+        new HDWalletProvider(
+          MNEMONIC,
+          `https://goerli.infura.io/v3/${INFURA_ID}`
+        ),
+      network_id: 5,
+      confirmations: 2,
+      timeoutBlocks: 200,
+      skipDryRun: true,
     },
     //
     // An additional network, but with some advanced options…

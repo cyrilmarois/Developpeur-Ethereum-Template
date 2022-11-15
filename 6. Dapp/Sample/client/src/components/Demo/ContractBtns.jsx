@@ -34,7 +34,12 @@ function ContractBtns({ setValue, setSayan }) {
       return;
     }
     const newValue = parseInt(inputValue);
-    await contract.methods.write(newValue).send({ from: accounts[0] });
+    try {
+      await contract.methods.write(newValue).send({ from: accounts[0] });
+    } catch (e) {
+      console.log(e.message);
+      throw e;
+    }
   };
 
   const getGreeter = async () => {
