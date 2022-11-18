@@ -1,11 +1,23 @@
 // SPDX-License-Identifier: MIT
-pragma solidity >=0.4.22 <0.9.0;
+pragma solidity ^0.8.17;
 
-contract SimpleStorage {
+import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
+
+contract SimpleStorage is ERC20 {
   uint256 value;
   string greeter;
 
   event valueChanged(uint256 _val);
+
+  constructor() ERC20('Alyra', 'ALY') {
+
+  }
+
+  function mint() external {
+    _mint(msg.sender, 100000);
+  }
+
+  receive() external payable {}
 
   function read() public view returns (uint256) {
     return value;
