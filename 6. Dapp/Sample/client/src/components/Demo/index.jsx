@@ -12,13 +12,18 @@ function Demo() {
   const { state } = useEth();
   const [value, setValue] = useState("?");
   const [say, setSay] = useState("init");
+  const [balance, setBalance] = useState("0");
 
   const demo = (
     <>
       <Cta />
       <div className="contract-container">
-        <Contract value={value} say={say} />
-        <ContractBtns setValue={setValue} setSayan={setSay} />
+        <Contract value={value} say={say} balance={balance} />
+        <ContractBtns
+          setValue={setValue}
+          setSayan={setSay}
+          setBalance={setBalance}
+        />
       </div>
       <Desc />
     </>

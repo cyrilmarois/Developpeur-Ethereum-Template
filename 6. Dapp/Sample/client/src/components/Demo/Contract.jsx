@@ -1,7 +1,7 @@
 import { useRef, useEffect, useState } from "react";
 import useEth from "../../contexts/EthContext/useEth";
 
-function Contract({ value, say }) {
+function Contract({ value, say, balance }) {
   const {
     state: { contract },
   } = useEth();
@@ -20,7 +20,6 @@ function Contract({ value, say }) {
       let oldies = [];
       oldEvents.forEach((event) => {
         oldies.push(event.returnValues._val);
-        console.log(event.returnValues._val);
       });
       setOldEvents(oldies.toString());
 
@@ -29,7 +28,6 @@ function Contract({ value, say }) {
         .on("data", (event) => {
           let newEvent = event.returnValues._val;
           setEventValue(newEvent);
-          console.log(newEvent);
         })
         .on("changed", (changed) => console.log(changed))
         .on("error", (err) => console.log(err))
@@ -48,7 +46,13 @@ function Contract({ value, say }) {
 
   return (
     <code>
-      {`contract SimpleStorage {
+      {`Balance : `}
+      <span className="secondary-color" ref={spanEle}>
+        <strong>{balance}</strong>
+      </span>
+      {`
+
+contract SimpleStorage {
   uint256 value = `}
       <span className="secondary-color" ref={spanEle}>
         <strong>{value}</strong>

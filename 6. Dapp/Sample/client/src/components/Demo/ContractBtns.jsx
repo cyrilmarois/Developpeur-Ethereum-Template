@@ -1,9 +1,10 @@
 import { useState } from "react";
+import Web3 from "web3";
 import useEth from "../../contexts/EthContext/useEth";
 
-function ContractBtns({ setValue, setSayan }) {
+function ContractBtns({ setValue, setSayan, setBalance }) {
   const {
-    state: { contract, accounts },
+    state: { contract, accounts, web3 },
   } = useEth();
   const [inputValue, setInputValue] = useState("");
   const [inputSay, setInputSay] = useState("");
@@ -35,10 +36,11 @@ function ContractBtns({ setValue, setSayan }) {
     }
     const newValue = parseInt(inputValue);
     try {
+      await contract.methods.write(newValue).call();
       await contract.methods.write(newValue).send({ from: accounts[0] });
     } catch (e) {
       console.log(e.message);
-      throw e;
+      alert(e);
     }
   };
 
@@ -61,8 +63,18 @@ function ContractBtns({ setValue, setSayan }) {
     await contract.methods.setGreeter(titi).send({ from: accounts[0] });
   };
 
+  const getBalance = async (e) => {
+    let balance = 0;
+    web3.eth.getBalance(accounts[0], (err, wei) => {
+      balance = web3.utils.fromWei(wei, "ether");
+      setBalance(balance);
+    });
+  };
+
   return (
     <div className="btns">
+      <button onClick={getBalance}>getBalance()</button>
+
       <button onClick={read}>read()</button>
 
       <div onClick={write} className="input-btn">
